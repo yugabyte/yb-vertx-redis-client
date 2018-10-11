@@ -23,10 +23,12 @@
     <version>28</version>
   </parent>
 
+  <groupId>com.yugabyte</groupId>
   <artifactId>vertx-redis-client</artifactId>
-  <version>3.5.3</version>
+  <version>3.5.3-yb-1-SNAPSHOT</version>
 
   <name>Vert.x Redis Client</name>
+  <url>https://github.com/yugabyte/jedis</url>
 
   <properties>
     <stack.version>3.5.3</stack.version>
