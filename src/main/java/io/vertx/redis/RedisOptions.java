@@ -63,7 +63,7 @@ public class RedisOptions extends NetClientOptions {
   private boolean domainSocket;
 
   private String auth;
-  private Integer select;
+  private String select;
 
   private String masterName;
   private List<String> sentinels;
@@ -244,7 +244,7 @@ public class RedisOptions extends NetClientOptions {
    * Get the database to select at connection time.
    * * @return database id
    */
-  public Integer getSelect() {
+  public String getSelect() {
     return select;
   }
 
@@ -255,6 +255,10 @@ public class RedisOptions extends NetClientOptions {
    * @return self
    */
   public RedisOptions setSelect(Integer select) {
+    this.select = select.toString();
+    return this;
+  }
+  public RedisOptions setSelect(String select) {
     this.select = select;
     return this;
   }
