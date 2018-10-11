@@ -2303,6 +2303,34 @@ public abstract class RedisClientTestBase extends VertxTestBase {
   }
 
   @Test
+  public void testSelectStr() {
+    //Gee, think redis should have a get current DB command?
+    redis.select("1", reply -> {  // Use the String version.
+      if (reply.succeeded()) {
+        redis.set("first", "value", reply2 -> {
+          if (reply2.succeeded()) {
+            redis.select("0", reply3 -> {  // Use the String version.
+              if (reply3.succeeded()) {
+                redis.select(1, reply4 -> {  // Use the int version.
+                  if (reply4.succeeded()) {
+                    redis.get("first", reply5 -> {
+                      if (reply5.succeeded()) {
+                        assertTrue("value".equals(reply5.result()));
+                        testComplete();
+                      }
+                    });
+                  }
+                });
+              }
+            });
+          }
+        });
+      }
+    });
+    await();
+  }
+
+  @Test
   public void testSet() {
     final String mykey = makeKey();
     redis.set(mykey, "Hello", reply0 -> {

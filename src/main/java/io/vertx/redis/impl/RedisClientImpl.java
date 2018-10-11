@@ -1021,6 +1021,12 @@ public final class RedisClientImpl extends AbstractRedisClient {
   }
 
   @Override
+  public RedisClient select(String dbindex, Handler<AsyncResult<String>> handler) {
+    sendString(SELECT, toPayload(dbindex), handler);
+    return this;
+  }
+
+  @Override
   public RedisClient set(String key, String value, Handler<AsyncResult<Void>> handler) {
     sendVoid(SET, toPayload(key, value), handler);
     return this;
@@ -2495,6 +2501,12 @@ public final class RedisClientImpl extends AbstractRedisClient {
 
     @Override
     public RedisTransaction select(int dbindex, Handler<AsyncResult<String>> handler) {
+      sendString(SELECT, toPayload(dbindex), handler);
+      return this;
+    }
+
+    @Override
+    public RedisTransaction select(String dbindex, Handler<AsyncResult<String>> handler) {
       sendString(SELECT, toPayload(dbindex), handler);
       return this;
     }
