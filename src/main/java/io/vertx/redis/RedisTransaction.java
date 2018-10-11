@@ -1790,6 +1790,7 @@ public interface RedisTransaction {
    */
   @Fluent
   RedisTransaction select(int dbindex, Handler<AsyncResult<String>> handler);
+  RedisTransaction select(String dbindex, Handler<AsyncResult<String>> handler);
 
   /**
    * Set the string value of a key

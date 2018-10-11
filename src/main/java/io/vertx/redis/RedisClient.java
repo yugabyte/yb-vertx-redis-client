@@ -1800,6 +1800,7 @@ public interface RedisClient {
    */
   @Fluent
   RedisClient select(int dbindex, Handler<AsyncResult<String>> handler);
+  RedisClient select(String dbindex, Handler<AsyncResult<String>> handler);
 
   /**
    * Set the string value of a key
