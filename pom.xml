@@ -217,6 +217,22 @@
     </profile>
   </profiles>
 
+    <scm>
+        <connection>scm:git:git@github.com:YugaByte/yb-vertx-redis-client.git</connection>
+        <developerConnection>scm:git:git@github.com:YugaByte/yb-vertx-redis-client.git</developerConnection>
+        <url>https://github.com/yugabyte/yb-vertx-redis-client</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>YugaByte Development Team</name>
+            <email>info@yugabyte.com</email>
+            <organization>YugaByte, Inc.</organization>
+            <organizationUrl>https://www.yugabyte.com</organizationUrl>
+        </developer>
+    </developers>
+
 
     <distributionManagement>
         <repository>
